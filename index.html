@@ -5,33 +5,10 @@
   <title>Display Food Family Names</title>
 </head>
 <body>
+  <input type="file" id="file-input">
+
   <ul id="food-list"></ul>
 
-  <script>
-
-    // Define the URL of the JSON file
-    const jsonUrl = 'response.json';
-
-    // Use fetch to load the contents of the JSON file
-    fetch(jsonUrl)
-    .then(response => response.json())
-    .then(data => {
-        // Use the data in your application
-        console.log(data);
-
-        // Loop through each object in the "segmentation_results" array
-        data.segmentation_results.forEach(segment => {
-            // Loop through each object in the "recognition_results" array for the current segmentation result
-            segment.recognition_results.forEach(result => {
-                // Display the name in the "foodFamily" field
-                document.getElementById('food-list').innerHTML += `<li>${result.name}</li>`;
-            });
-        });
-    })
-    .catch(error => {
-        // Handle errors here
-        console.error(error);
-    });
-  </script>
+  <script src="api.js"></script>
 </body>
 </html>
