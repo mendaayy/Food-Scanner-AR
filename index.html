@@ -5,10 +5,21 @@
   <title>Display Food Family Names</title>
 </head>
 <body>
-  <input type="file" id="file-input">
+
+  <div>
+    <video id="camera-view" autoplay playsinline></video>
+    <button id="capture-button">Capture</button>
+  </div>
+
+  <div>
+    <img id="uploaded-image" style="max-width: 400px">
+  </div>
 
   <ul id="food-list"></ul>
 
+  
   <script src="api.js"></script>
+
 </body>
 </html>
+
