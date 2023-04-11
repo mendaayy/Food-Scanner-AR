@@ -4,7 +4,7 @@ const captureButton = document.getElementById('button');
 
 // Define Logmeal Scanner API
 const apiUrl = 'https://api.logmeal.es/v2/image/segmentation/complete/v1.0?language=eng';
-const token = 'c5124dc9d75d2bb403de4584ef06e0b7c6af2e6c';
+const token = '4bb5dbab200cf4d24ee2eade1d3fa65a6cc19bea';
 
 // Define Spoonacular Recipe API
 const apiKey = "2cedbb7de10b4cf3914eebcfb525dfa1";
@@ -91,6 +91,9 @@ function displayResults(data, file) {
       uniqueFoods.add(result);
     }
   });
+
+  // Save unique food names to local storage
+  localStorage.setItem('uniqueFoods', JSON.stringify(Array.from(uniqueFoods)));
 
   uniqueFoods.forEach(foodName => {
     // Create a new list item element

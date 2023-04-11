@@ -125,6 +125,8 @@ body {
     margin-top: 75px;
     position: relative;
     padding-right: 40px;
+	overflow-y: scroll;
+    height: 750px;
 }
 
 .index #food-list li img {
@@ -215,4 +217,22 @@ body {
 	padding: 10px;
 }
 
-  
+.index .popup .recipeBtn {
+	position: absolute;
+    bottom: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 35px;
+    outline: none;
+    padding: 30px 70px;
+    border-radius: 70px;
+    border: 1px solid black;
+    background-color: black;
+    color: white;
+    font-weight: bold;
+}
+
+.index .popup .recipeBtn a {
+	text-decoration: none;
+    color: white;
+}
