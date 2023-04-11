@@ -1,0 +1,109 @@
+.index {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	height: 100%;
+	background-color: black;
+}
+
+.index .camera-container {
+    display: flex;
+	flex-direction: column;
+	height: 100%;
+}
+  
+.index .camera-view {
+    flex-grow: 1;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+  
+.index #camera, #uploaded-image {
+    position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	transform: scaleX(-1);
+}
+  
+.index .capture-button {
+    display: flex;
+	align-items: center;
+	justify-content: center;
+	position: absolute;
+	bottom: 110px;
+	left: 50%;
+	transform: translateX(-50%);
+	z-index: 1;
+}
+
+.index #button {
+	border: none;
+	background-color: transparent;
+	padding: 0;
+	outline: none;
+	background-image: url(images/capture.svg);
+	background-size: cover;
+	width: 180px;
+	height: 180px;
+	background-repeat: no-repeat;
+}
+
+.index #button img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+  
+.index .capture-bg {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 400px;
+	background-color: black;
+	opacity: 0.5; 
+	z-index: 0;
+	border-top-right-radius: 50px;
+	border-top-left-radius: 50px;
+ }
+
+.index .popup {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 1400px;
+	background-color: #fff;
+	box-shadow: 0 -1px 10px rgba(0, 0, 0, 0.2);
+	z-index: 999;
+	animation: slide-up 0.3s ease-in-out forwards;
+	display: none;
+}
+  
+.index .food-list-container {
+	padding: 20px;
+}
+  
+.index .close-button {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	font-size: 50px;
+	background-color: transparent;
+	border: none;
+	outline: none;
+	cursor: pointer;
+}
+  
+@keyframes slide-up {
+	from {
+	  transform: translateY(100%);
+	}
+	to {
+	  transform: translateY(0);
+	}
+}
+  

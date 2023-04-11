@@ -3,23 +3,37 @@
 <head>
   <meta charset="UTF-8">
   <title>Display Food Family Names</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="css/camera.css">
 </head>
-<body>
+<body class="index">
 
-  <div>
-    <video id="camera-view" autoplay playsinline></video>
-    <button id="capture-button">Capture</button>
+  <div class="camera-container">
+    <div class="camera-view">
+      <video id="camera" autoplay playsinline></video>
+    </div>
+
+    <div class="capture-bg"></div>
+
+    <div class="capture-button">
+      
+      <button id="button">
+        <img src="images/capture.svg"> 
+      </button>
+    </div>
+
+    <img id="uploaded-image">
+
+    <div class="popup">
+      <button class="close-button">&times;</button>
+
+      <div class="food-list-container">
+        <ul id="food-list"></ul>
+      </div>
+    </div>
   </div>
 
-  <div>
-    <img id="uploaded-image" style="max-width: 400px">
-  </div>
-
-  <ul id="food-list"></ul>
-
-  
-  <script src="api.js"></script>
+  <script src="js/scanner.js"></script>
 
 </body>
 </html>
-
