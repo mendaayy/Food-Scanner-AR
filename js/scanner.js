@@ -4,7 +4,7 @@ const captureButton = document.getElementById('button');
 
 // Define Logmeal Scanner API
 const apiUrl = 'https://api.logmeal.es/v2/image/segmentation/complete/v1.0?language=eng';
-const token = '57b77cd1e529e14ebd7f65691bf7be6b11632ad1';
+const token = 'c5124dc9d75d2bb403de4584ef06e0b7c6af2e6c';
 
 // Define Spoonacular Recipe API
 const apiKey = "2cedbb7de10b4cf3914eebcfb525dfa1";
@@ -57,7 +57,9 @@ captureButton.addEventListener('click', () => {
       displayResults(data, file);
 
       const popup = document.querySelector('.popup');
+      const closeButton = document.querySelector('.close-button');
       popup.style.display = 'block';
+      closeButton.style.display = 'block';
     })
     .catch(error => {
       console.error(error);
@@ -87,35 +89,65 @@ function displayResults(data, file) {
     // Check if food name is already in the list
     if (!uniqueFoods.has(result)) { 
       uniqueFoods.add(result);
-       // Create a new list item element
-      const li = document.createElement('li');
-
-      // Create an image element for the ingredient and set its source and alt attributes
-      const img = document.createElement('img');
-      img.src = ''; // Set the initial source to an empty string
-
-      // Add the image and food name to the list item
-      li.appendChild(img);
-      li.appendChild(document.createTextNode(result));
-
-      // Add the list item to the food list
-      foodList.appendChild(li);
     }
   });
 
-  // Make a query to Spoonacular API for each recognized food name
   uniqueFoods.forEach(foodName => {
+    // Create a new list item element
+    const li = document.createElement('li');
+  
+    // Create an image element for the ingredient and set its source and alt attributes
+    const img = document.createElement('img');
+    const div1 = document.createElement('div');
+    const span = document.createElement('span');
+    const div2 = document.createElement('div');
+    const input = document.createElement('input');
+    const removeBtn = document.createElement('button');
+    const decreaseButton = document.createElement('button');
+    const increaseButton = document.createElement('button');
+    const pieces = document.createElement('span');
+  
+    span.innerHTML = foodName;
+    removeBtn.innerHTML = "&times;";
+    input.type = 'number';
+    input.min = 1;
+    input.value = 1;
+    decreaseButton.innerHTML = "-";
+    increaseButton.innerHTML = "+";
+    pieces.innerHTML = "pieces";
+    img.src = ''; // Set the initial source to an empty string
+  
+    // Add the image, food name, input and buttons to the list item
+    div2.appendChild(decreaseButton);
+    div2.appendChild(input);
+    div2.appendChild(increaseButton);
+    div2.appendChild(pieces);
+
+    div1.appendChild(span);
+    div1.appendChild(div2)
+
+    li.appendChild(img);
+    li.appendChild(div1);
+    li.appendChild(removeBtn);
+
+    removeBtn.classList.add("remove");
+    div1.classList.add("food-row");
+    div2.classList.add("input-group");
+  
+    // Add the list item to the food list
+    foodList.appendChild(li);
+  
+    // Make a query to Spoonacular API for each recognized food name
     fetch(`https://api.spoonacular.com/food/ingredients/search?query=${encodeURIComponent(foodName)}&apiKey=${apiKey}`)
       .then(response => response.json())
       .then(data => {
         console.log(data)
         // Get the first result from the response
         const result = data.results[0];
-
+  
         // Display the image of the ingredient
-        const foodList = document.getElementById('food-list');
         const lis = foodList.querySelectorAll('li');
-
+  
         for (const li of lis) {
           if (li.textContent.includes(foodName)) {
             const img = li.querySelector('img');
@@ -126,12 +158,31 @@ function displayResults(data, file) {
       .catch(error => {
         console.error(error);
       });
-  });
+  
+    // Add an event listener to the decrease button
+    decreaseButton.addEventListener('click', () => {
+      if (input.value > 1) {
+        input.value = parseInt(input.value) - 1;
+      }
+    });
 
+    // Add an event listener to the increase button
+    increaseButton.addEventListener('click', () => {
+      input.value = parseInt(input.value) + 1;
+    });
+  
+    // Add an event listener to the "x" button
+    removeBtn.addEventListener('click', () => {
+      li.remove(); // Remove the list item from the food list
+    });
+  });
+  
   // Add an event listener to the close button
   const closeButton = document.querySelector('.close-button');
   closeButton.addEventListener('click', () => {
     // Remove the popup from the DOM
+    const closeButton = document.querySelector('.close-button');
+    closeButton.style.display = 'none';
     const popup = document.querySelector('.popup');
     popup.style.display = 'none';
 

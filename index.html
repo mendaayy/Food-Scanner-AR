@@ -8,26 +8,33 @@
 </head>
 <body class="index">
 
+  <!-- webcam -->
   <div class="camera-container">
     <div class="camera-view">
       <video id="camera" autoplay playsinline></video>
     </div>
 
+    <!-- capture button background -->
     <div class="capture-bg"></div>
 
     <div class="capture-button">
-      
       <button id="button">
         <img src="images/capture.svg"> 
       </button>
     </div>
 
+    <!-- captured image -->
     <img id="uploaded-image">
 
-    <div class="popup">
-      <button class="close-button">&times;</button>
+    <button class="close-button">
+      <img src="images/back-arrow.svg"> 
+    </button>
 
+    <!-- confirm food popup -->
+    <div class="popup">
       <div class="food-list-container">
+        <h1>Confirm Food</h1>
+
         <ul id="food-list"></ul>
       </div>
     </div>
