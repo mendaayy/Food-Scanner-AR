@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Display Food Family Names</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="css/camera.css">
+</head>
+<body class="index">
+
+  <!-- webcam -->
+  <div class="camera-container">
+    <div class="camera-view">
+      <video id="camera" autoplay playsinline></video>
+    </div>
+
+    <!-- capture button background -->
+    <div class="capture-bg"></div>
+
+    <div class="capture-button">
+      <button id="button">
+        <img src="images/capture.svg"> 
+      </button>
+    </div>
+
+    <!-- captured image -->
+    <img id="uploaded-image">
+
+    <button class="close-button">
+      <img src="images/back-arrow.svg"> 
+    </button> 
+
+    <div id="loading-icon"></div> 
+
+    <!-- confirm food popup -->
+    <div class="popup">
+      <div class="food-list-container">
+        <h1>Confirm Food</h1>
+
+        <ul id="food-list"></ul>
+      </div>
+
+      <button class="recipeBtn"><a href="generateRecipe.html">Generate Recipes</a></button>
+    </div>
+  </div>
+
+  <script src="js/scanner.js"></script>
+
+</body>
+</html>
