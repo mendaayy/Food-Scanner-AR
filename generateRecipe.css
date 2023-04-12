@@ -101,13 +101,7 @@ body {
     margin-top: 10px;
   }
   .recipe-time,
-  .recipe-calories {
-    font-size: 12px;
-    font-style: normal;
-    color: #000000;
-  }
-
-  i{
+  .recipe-calories, i{
     padding-right: 5px;
   }
 
@@ -116,6 +110,34 @@ body {
     color: red;
   }
  
+  .scanner-btn{
+    position:fixed;
+    width:80px;
+    height:80px;
+    right: 5%;
+    top: 80%;
+    background-color:#000000;
+    color:#FFF;
+    border-radius:50px;
+    text-align:center;
+    border: 8px solid #FFFFFF;
+    box-shadow: 2px 2px 3px #999;
+    align-items: center;
+    padding: 10px 10px 10px 15px;
+    font-size: 30px;
+  }
+  
+  .scanner-btn:visited{
+    text-decoration: none;
+    color: #ffffff;
+  }
+
+  .scanner:hover{
+    background-color:#ffffff;
+    border: 8px solid #000;
+    color: #000;
+  }
+  
   /* Media query for smaller screens */
   @media only screen and (max-width: 567px) {
     #recipe-grid {
