@@ -4,7 +4,7 @@ const captureButton = document.getElementById('button');
 
 // Define Logmeal Scanner API
 const apiUrl = 'https://api.logmeal.es/v2/image/segmentation/complete/v1.0?language=eng';
-const token = '4bb5dbab200cf4d24ee2eade1d3fa65a6cc19bea';
+const token = '7b1ac7010d31534454cd5a339243581f65bda26a';
 
 // Define Spoonacular Recipe API
 const apiKey = "2cedbb7de10b4cf3914eebcfb525dfa1";
@@ -15,7 +15,13 @@ window.addEventListener("load", (event) => {
 
 // Access the camera and show the video stream
 function camera() {
-  navigator.mediaDevices.getUserMedia({ video: { facingMode: "user" } })
+  navigator.mediaDevices.getUserMedia({
+    video: {
+      facingMode: {
+        exact: "user"
+      }
+    }
+  })
     .then(stream => {
       video.srcObject = stream;
       video.onloadedmetadata = () => {
@@ -30,6 +36,7 @@ function camera() {
 
 // Capture the image and send it to an API
 captureButton.addEventListener('click', () => {
+
   const canvas = document.createElement('canvas');
   canvas.width = video.videoWidth;
   canvas.height = video.videoHeight;
@@ -42,6 +49,13 @@ captureButton.addEventListener('click', () => {
     const form = new FormData();
 
     form.append('image', file);
+
+    // Display uploaded image
+    const imageUrl = URL.createObjectURL(file);
+    document.getElementById('uploaded-image').setAttribute('src', imageUrl);
+
+    const loadingIcon = document.getElementById('loading-icon');
+    loadingIcon.style.display = 'block';
 
     // Send image to API
     fetch(apiUrl, {
@@ -58,12 +72,15 @@ captureButton.addEventListener('click', () => {
 
       const popup = document.querySelector('.popup');
       const closeButton = document.querySelector('.close-button');
+      const loadingIcon = document.getElementById('loading-icon');
+
+      loadingIcon.style.display = 'none';
       popup.style.display = 'block';
       closeButton.style.display = 'block';
     })
     .catch(error => {
       console.error(error);
-      alert('An error occurred while processing the image.');
+      alert('ERROR: Too many API requests');
     });
 
   }, 'image/jpeg', 0.9);
@@ -72,10 +89,6 @@ captureButton.addEventListener('click', () => {
 // Display API request resuslts
 function displayResults(data, file) {
   console.log(data);
-
-  // Display uploaded image
-  const imageUrl = URL.createObjectURL(file);
-  document.getElementById('uploaded-image').setAttribute('src', imageUrl);
 
   // Reset ingredients list
   const foodList = document.getElementById('food-list');
