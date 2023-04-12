@@ -103,6 +103,8 @@ function displayResults(data, file) {
     if (!uniqueFoods.has(result)) { 
       uniqueFoods.add(result);
     }
+
+    console.log(uniqueFoods)
   });
 
   // Save unique food names to local storage

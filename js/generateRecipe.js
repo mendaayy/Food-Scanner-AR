@@ -6,6 +6,22 @@ const searchForm = document.querySelector("#search-form");
 const searchBar = document.querySelector("#search-bar");
 const recipeGrid = document.querySelector("#recipe-grid");
 
+window.addEventListener("load", (event) => {
+  // Get ingredients input from scanner
+  const uniqueFoods = JSON.parse(localStorage.getItem('uniqueFoods'));
+  const ingredients = uniqueFoods.join(',');
+  console.log(ingredients);
+
+  // Build URL for Spoonacular API call
+  const ingredientsUrl = buildIngredientsUrl(ingredients);
+
+  // Call function to fetch recipe data
+  fetchIngredientsData(ingredientsUrl)
+    .then(renderRecipeCards)
+    .catch((error) => console.log(error));
+})
+
+
 // Add event listener to search form
 searchForm.addEventListener("submit", handleSearchSubmit);
 
@@ -67,6 +83,7 @@ function renderRecipeCards(data) {
     const recipeName = recipe.title;
     const recipeImg = recipe.image;
     const recipeMissing = recipe.missedIngredientCount;
+    console.log(data);
 
     // Call function to fetch recipe details data
     fetchRecipeDetailsData(recipeId)
@@ -75,6 +92,7 @@ function renderRecipeCards(data) {
         const recipeCalories = data.nutrition.nutrients.find(
           (nutrient) => nutrient.name === "Calories"
         ).amount / recipeServings;
+        console.log(data);
 
         // Build recipe card HTML
         const recipeCard = buildRecipeCard(recipeName, recipeImg, recipeCalories, recipeMissing);
