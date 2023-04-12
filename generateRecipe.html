@@ -4,9 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Generate Recipes</title>
-  <script src="https://kit.fontawesome.com/95dbc10734.js" crossorigin="anonymous"></script>
+  <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
-  <link rel="stylesheet" href="style.css">
+  <!-- Bootstrap Font Icon CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="generateRecipe.css">
 </head>
 <body>
 
@@ -15,31 +17,51 @@
   </header>
   <form id="search-form">
     <input type="text" id="search-bar" placeholder="Search Recipe">
-    <button type="submit" id="search-btn">
-      <span class="fa fa-search" id="search-icon"></span>
+    <button type="submit" class="bi bi-search" id="search-btn">
+      <span  id="search-icon"></span>
     </button>
   </form>
   <div id="recipe-grid">
     <div class="recipe-card">
       <img src="" alt="Recipe image" class="recipe-img">
       <h2 class="recipe-name">Recipe 1</h2>
-
+      <div class="recipe-details">
+        <p class="recipe-time"><i class="bi bi-clock"></i>30 min</p>
+        <p class="recipe-calories"><i class="bi-fire"></i>500 kcal</p>
+      </div>
+      <p class="recipe-missing">2 ingredients missing</p>
     </div>
     <div class="recipe-card">
       <img src="" alt="Recipe image" class="recipe-img">
       <h2 class="recipe-name">Recipe 2</h2>
+      <div class="recipe-details">
+        <p class="recipe-time"><i class="bi-clock"></i>30 min</p>
+        <p class="recipe-calories"><i class="bi-fire"></i>500 kcal</p>
+      </div>
+      <p class="recipe-missing">2 ingredients missing</p>
     </div>
     <div class="recipe-card">
       <img src="" alt="Recipe image" class="recipe-img">
       <h2 class="recipe-name">Recipe 3</h2>
+      <div class="recipe-details">
+        <p class="recipe-time"><i class="bi-clock"></i>30 min</p>
+        <p class="recipe-calories"><i class="bi-fire"></i>500 kcal</p>
+      </div>
+      <p class="recipe-missing">2 ingredients missing</p>
     </div>
     <div class="recipe-card">
       <img src="" alt="Recipe image" class="recipe-img">
       <h2 class="recipe-name">Recipe 4</h2>
+      <div class="recipe-details">
+        <p class="recipe-time"><i class="bi-clock"></i>30 min</p>
+        <p class="recipe-calories"><i class="bi-fire"></i>500 kcal</p>
+      </div>
+      <p class="recipe-missing">2 ingredients missing</p>
     </div>
   </div>
 
-  <script src="script.js"></script>
+  <script src="generateRecipe.js"></script>
 
  
 </html>
+
