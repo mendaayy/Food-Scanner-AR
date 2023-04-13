@@ -18,7 +18,7 @@ function camera() {
   navigator.mediaDevices.getUserMedia({
     video: {
       facingMode: {
-        exact: "user"
+        exact: "environment"
       }
     }
   })
