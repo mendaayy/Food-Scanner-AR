@@ -18,8 +18,24 @@ window.addEventListener("load", (event) => {
   // Call function to fetch recipe data
   fetchIngredientsData(ingredientsUrl)
     .then(renderRecipeCards)
-    .catch((error) => console.log(error));
+    .catch(error => {
+      console.error(error);
+      throw new Error('Too Many Requests');
+    })
+
+    renderUniqueFoods();
 })
+
+function renderUniqueFoods() {
+  const uniqueFoods = JSON.parse(localStorage.getItem("uniqueFoods"));
+  const uniqueFoodsDiv = document.querySelector("#unique-foods");
+
+  uniqueFoods.forEach((food) => {
+    const foodSpan = document.createElement("span");
+    foodSpan.innerText = food;
+    uniqueFoodsDiv.appendChild(foodSpan);
+  });
+}
 
 
 // Add event listener to search form
@@ -39,7 +55,10 @@ function handleSearchSubmit(event) {
   // Call function to fetch recipe data
   fetchIngredientsData(ingredientsUrl)
     .then(renderRecipeCards)
-    .catch((error) => console.log(error));
+    .catch(error => {
+      console.error(error);
+      throw new Error('Too Many Requests');
+    })
 
   // Clear search bar input
   searchBar.value = "";
@@ -75,47 +94,69 @@ function fetchRecipeDetailsData(recipeId) {
 function renderRecipeCards(data) {
   // Clear recipe grid
   recipeGrid.innerHTML = "";
-  let recipeCards = "";
 
-  // Loop through each recipe and add a recipe card to the DOM
-  data.forEach((recipe) => {
-    const recipeId = recipe.id;
-    const recipeName = recipe.title;
-    const recipeImg = recipe.image;
-    const recipeMissing = recipe.missedIngredientCount;
-    console.log(data);
+  if (data.length === 0) {
+    const noResultsContainer = document.createElement("div");
+    noResultsContainer.classList.add("no-results-container");
 
-    // Call function to fetch recipe details data
-    fetchRecipeDetailsData(recipeId)
-      .then((data) => {
-        const recipeServings = data.servings;
-        const recipeCalories = data.nutrition.nutrients.find(
-          (nutrient) => nutrient.name === "Calories"
-        ).amount / recipeServings;
-        console.log(data);
+    const noResultsMessage = document.createElement("p");
+    noResultsMessage.innerText = "No results found";
+    noResultsContainer.appendChild(noResultsMessage);
 
-        // Build recipe card HTML
-        const recipeCard = buildRecipeCard(recipeName, recipeImg, recipeCalories, recipeMissing);
+    const backButton = document.createElement("button");
+    backButton.innerText = "Back";
+    backButton.addEventListener("click", () => {
+      window.location = "/generateRecipe.html";
+    });
+    noResultsContainer.appendChild(backButton);
 
-        // Add recipe card to recipe grid
-        recipeCards += recipeCard;
-        recipeGrid.innerHTML = recipeCards;
-      })
-      .catch((error) => console.log(error));
-  });
+    document.body.appendChild(noResultsContainer);
+    return;
+  }
+
+ // Clear recipe grid
+ recipeGrid.innerHTML = "";
+ let recipeCards = "";
+
+ // Loop through each recipe and add a recipe card to the DOM
+ data.forEach((recipe) => {
+   const recipeId = recipe.id;
+   const recipeName = recipe.title;
+   const recipeImg = recipe.image;
+   const recipeMissing = recipe.missedIngredientCount;
+
+   // Call function to fetch recipe details data
+   fetchRecipeDetailsData(recipeId)
+     .then((data) => {
+       const recipeServings = data.servings;
+       const recipeCalories = data.nutrition.nutrients.find(
+         (nutrient) => nutrient.name === "Calories"
+       ).amount / recipeServings;
+
+       const recipeTime = data.readyInMinutes; // Get recipe time from API
+
+       // Build recipe card HTML
+       const recipeCard = buildRecipeCard(recipeName, recipeImg, recipeTime, recipeCalories, recipeMissing);
+
+       // Add recipe card to recipe grid
+       recipeCards += recipeCard;
+       recipeGrid.innerHTML = recipeCards;
+     })
+     .catch((error) => console.log(error));
+ });
 }
 
 // Build HTML for recipe card
-function buildRecipeCard(recipeName, recipeImg, recipeCalories, recipeMissing) {
+function buildRecipeCard(recipeName, recipeImg, recipeTime, recipeCalories, recipeMissing) {
   return `
-  <div class="recipe-card">
-    <img src="${recipeImg}" alt="Recipe image" class="recipe-img">
-    <h2 class="recipe-name">${recipeName}</h2>
-    <div class="recipe-details">
-        <p class="recipe-time"><i class="bi-clock"></i>30 min</p>
+    <div class="recipe-card">
+      <img src="${recipeImg}" alt="Recipe image" class="recipe-img">
+      <h2 class="recipe-name">${recipeName}</h2>
+      <div class="recipe-details">
+        <p class="recipe-time"><i class="bi-clock"></i>${recipeTime} min</p>
         <p class="recipe-calories"><i class="bi-fire"></i>${recipeCalories.toFixed(0)} kcal</p>
+      </div>
+      <p class="recipe-missing">${recipeMissing} missing ingredients</p>
     </div>
-    <p class="recipe-missing">${recipeMissing} missing ingredients </p>
-    </div>
-    `;
+  `;
 }
