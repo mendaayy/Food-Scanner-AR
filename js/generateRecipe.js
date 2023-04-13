@@ -1,9 +1,5 @@
 // API key for Spoonacular API
-<<<<<<< HEAD
 const apiKey = "8f23874a705747e985b05a6f6ba74bf6";
-=======
-const apiKey = "a7fc1854b6fe47f8928dfd72cd24c560";
->>>>>>> f3ff0c42b53ba62d505b7dc7c43c3c6d91f5cc42
 
 // Get DOM elements
 const searchForm = document.querySelector("#search-form");
@@ -22,31 +18,9 @@ window.addEventListener("load", (event) => {
   // Call function to fetch recipe data
   fetchIngredientsData(ingredientsUrl)
     .then(renderRecipeCards)
-<<<<<<< HEAD
     .catch((error) => console.log(error));
 })
 
-=======
-    .catch(error => {
-      console.error(error);
-      throw new Error('Too Many Requests');
-    })
-
-    renderUniqueFoods();
-})
-
-function renderUniqueFoods() {
-  const uniqueFoods = JSON.parse(localStorage.getItem("uniqueFoods"));
-  const uniqueFoodsDiv = document.querySelector("#unique-foods");
-
-  uniqueFoods.forEach((food) => {
-    const foodSpan = document.createElement("span");
-    foodSpan.innerText = food;
-    uniqueFoodsDiv.appendChild(foodSpan);
-  });
-}
-
->>>>>>> f3ff0c42b53ba62d505b7dc7c43c3c6d91f5cc42
 
 // Add event listener to search form
 searchForm.addEventListener("submit", handleSearchSubmit);
@@ -65,14 +39,7 @@ function handleSearchSubmit(event) {
   // Call function to fetch recipe data
   fetchIngredientsData(ingredientsUrl)
     .then(renderRecipeCards)
-<<<<<<< HEAD
     .catch((error) => console.log(error));
-=======
-    .catch(error => {
-      console.error(error);
-      throw new Error('Too Many Requests');
-    })
->>>>>>> f3ff0c42b53ba62d505b7dc7c43c3c6d91f5cc42
 
   // Clear search bar input
   searchBar.value = "";
@@ -108,29 +75,6 @@ function fetchRecipeDetailsData(recipeId) {
 function renderRecipeCards(data) {
   // Clear recipe grid
   recipeGrid.innerHTML = "";
-<<<<<<< HEAD
-=======
-
-  if (data.length === 0) {
-    const noResultsContainer = document.createElement("div");
-    noResultsContainer.classList.add("no-results-container");
-
-    const noResultsMessage = document.createElement("p");
-    noResultsMessage.innerText = "No results found";
-    noResultsContainer.appendChild(noResultsMessage);
-
-    const backButton = document.createElement("button");
-    backButton.innerText = "Back";
-    backButton.addEventListener("click", () => {
-      window.location = "/generateRecipe.html";
-    });
-    noResultsContainer.appendChild(backButton);
-
-    document.body.appendChild(noResultsContainer);
-    return;
-  }
-
->>>>>>> f3ff0c42b53ba62d505b7dc7c43c3c6d91f5cc42
   let recipeCards = "";
 
   // Loop through each recipe and add a recipe card to the DOM
@@ -157,14 +101,7 @@ function renderRecipeCards(data) {
         recipeCards += recipeCard;
         recipeGrid.innerHTML = recipeCards;
       })
-<<<<<<< HEAD
       .catch((error) => console.log(error));
-=======
-      .catch(error => {
-        console.error(error);
-        throw new Error('Too Many Requests');
-      })
->>>>>>> f3ff0c42b53ba62d505b7dc7c43c3c6d91f5cc42
   });
 }
 
