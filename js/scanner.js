@@ -4,7 +4,11 @@ const captureButton = document.getElementById('button');
 
 // Define Logmeal Scanner API
 const apiUrl = 'https://api.logmeal.es/v2/image/segmentation/complete/v1.0?language=eng';
+<<<<<<< HEAD
 const token = '7b1ac7010d31534454cd5a339243581f65bda26a';
+=======
+const token = 'ac044268642dcdf2e2d73bd085c4e6408b2e7633';
+>>>>>>> f3ff0c42b53ba62d505b7dc7c43c3c6d91f5cc42
 
 // Define Spoonacular Recipe API
 const apiKey = "2cedbb7de10b4cf3914eebcfb525dfa1";
