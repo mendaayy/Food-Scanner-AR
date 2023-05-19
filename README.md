@@ -35,6 +35,8 @@ I coded the scanning part and the food confirmation using the [Logmeal API](http
 
 ## Figma
 
+Figma [Link](https://www.figma.com/file/OFEzEYEFR3MK2Xn8fe6nAf/Food-scanner-app?type=design&node-id=0%3A1&t=2BPq5BfGJL6HH1be-1)
+
 ![iPhone 13 Pro Max - 1](https://github.com/mendaayy/Food-Scanner-AR/assets/122844229/4f05982a-7a2f-4d94-9f4d-abe9ba5d57f6)
 ![Scan Screen 3](https://github.com/mendaayy/Food-Scanner-AR/assets/122844229/7fcf68fd-e9c1-4b83-84ad-ace43c490f57)
 ![Recipe detail](https://github.com/mendaayy/Food-Scanner-AR/assets/122844229/6987206d-eb31-4140-99f4-ad418dc4d014)
