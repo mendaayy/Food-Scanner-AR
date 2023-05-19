@@ -19,7 +19,7 @@ To combat this problem, the proposed solution is the development of a mobile app
 
 This project took 1 month from doing UX research to development of the app. Throughout the whole process, I followed the Design Thinking approach: the [Design Kit](https://www.designkit.org/). For each phase of the project, I used relevant research methods to gather and define the target audience and their needs. In the end, I followed an iterative design process to refine the prototype as much as possible and needed until the deadline. 
 
-**[Click here](https://portfolio.drieam.app/s/GuxUr36X/SSx2MzUEo5h3FFCSx2J8gDuX)to read about my UX research process**
+**[Click here to read about my UX research process](https://portfolio.drieam.app/s/GuxUr36X/SSx2MzUEo5h3FFCSx2J8gDuX)**
 
 ## Front-end Development 
 
