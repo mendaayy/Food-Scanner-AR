@@ -27,15 +27,21 @@ This project took 1 month from doing UX research to development of the app. Thro
 
 I coded the scanning part and the food confirmation using the [Logmeal API](https://logmeal.es/). After I was done with coding that functionality and the UI, I created the link between the food confirmation and generating recipe based on the [Spoonacular API](https://spoonacular.com/food-api). In the end, I made the finishing touches and touched up the UI for instance, displaying the foodnames in the recipe page etc.
 
+**Tools & Technology
+
+- Food recognition through Logmeal API 
+- Spoonacular API
+- Camera
+- JS ES6+
+- HTML & CSS
+
 ## Coded UI
 
 <img width="250" alt="Screenshot 2023-05-19 at 03 13 07" src="https://github.com/mendaayy/Food-Scanner-AR/assets/122844229/141eed3d-f04f-46c3-9474-8c1da89bd9c7">
 <img width="250" alt="Screenshot 2023-05-19 at 03 10 37" src="https://github.com/mendaayy/Food-Scanner-AR/assets/122844229/0faec8d1-a80f-4149-9636-0924bb89f9fe">
 <img width="250" alt="Screenshot 2023-05-19 at 03 10 43" src="https://github.com/mendaayy/Food-Scanner-AR/assets/122844229/f9ae3e98-7114-49d1-8bb6-b107b2d1ae71">
 
-## Figma
-
-Figma [Link](https://www.figma.com/file/OFEzEYEFR3MK2Xn8fe6nAf/Food-scanner-app?type=design&node-id=0%3A1&t=2BPq5BfGJL6HH1be-1)
+## [Figma](https://www.figma.com/file/OFEzEYEFR3MK2Xn8fe6nAf/Food-scanner-app?type=design&node-id=0%3A1&t=2BPq5BfGJL6HH1be-1)
 
 ![iPhone 13 Pro Max - 1](https://github.com/mendaayy/Food-Scanner-AR/assets/122844229/4f05982a-7a2f-4d94-9f4d-abe9ba5d57f6)
 ![Scan Screen 3](https://github.com/mendaayy/Food-Scanner-AR/assets/122844229/7fcf68fd-e9c1-4b83-84ad-ace43c490f57)
