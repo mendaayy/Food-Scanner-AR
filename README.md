@@ -27,6 +27,17 @@ This project took 1 month from doing UX research to development of the app. Thro
 
 I coded the scanning part and the food confirmation using the [Logmeal API](https://logmeal.es/). After I was done with coding that functionality and the UI, I created the link between the food confirmation and generating recipe based on the [Spoonacular API](https://spoonacular.com/food-api). In the end, I made the finishing touches and touched up the UI for instance, displaying the foodnames in the recipe page etc.
 
-## Installation
+## Coded UI
 
-Go to the link https://i488547.hera.fhict.nl/cookly/ on your mobile and test it out! You can add it onto your homepage too.
+<img width="250" alt="Screenshot 2023-05-19 at 03 13 07" src="https://github.com/mendaayy/Food-Scanner-AR/assets/122844229/141eed3d-f04f-46c3-9474-8c1da89bd9c7">
+<img width="250" alt="Screenshot 2023-05-19 at 03 10 37" src="https://github.com/mendaayy/Food-Scanner-AR/assets/122844229/0faec8d1-a80f-4149-9636-0924bb89f9fe">
+<img width="250" alt="Screenshot 2023-05-19 at 03 10 43" src="https://github.com/mendaayy/Food-Scanner-AR/assets/122844229/f9ae3e98-7114-49d1-8bb6-b107b2d1ae71">
+
+## Figma
+
+![iPhone 13 Pro Max - 1](https://github.com/mendaayy/Food-Scanner-AR/assets/122844229/4f05982a-7a2f-4d94-9f4d-abe9ba5d57f6)
+![Scan Screen 3](https://github.com/mendaayy/Food-Scanner-AR/assets/122844229/7fcf68fd-e9c1-4b83-84ad-ace43c490f57)
+![Recipe detail](https://github.com/mendaayy/Food-Scanner-AR/assets/122844229/6987206d-eb31-4140-99f4-ad418dc4d014)
+![iPhone 13 Pro Max - 7](https://github.com/mendaayy/Food-Scanner-AR/assets/122844229/f2e47946-3de8-4052-b1d0-15ad6beca46e)
+
+
