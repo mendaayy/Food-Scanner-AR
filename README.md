@@ -35,11 +35,11 @@ I coded the scanning part and the food confirmation using the [Logmeal API](http
 - JS ES6+
 - HTML & CSS
 
-## Coded UI
+## Coded Prototype
 
-<img width="250" alt="Screenshot 2023-05-19 at 03 13 07" src="https://github.com/mendaayy/Food-Scanner-AR/assets/122844229/141eed3d-f04f-46c3-9474-8c1da89bd9c7">
-<img width="250" alt="Screenshot 2023-05-19 at 03 10 37" src="https://github.com/mendaayy/Food-Scanner-AR/assets/122844229/0faec8d1-a80f-4149-9636-0924bb89f9fe">
-<img width="250" alt="Screenshot 2023-05-19 at 03 10 43" src="https://github.com/mendaayy/Food-Scanner-AR/assets/122844229/f9ae3e98-7114-49d1-8bb6-b107b2d1ae71">
+
+https://github.com/mendaayy/Food-Scanner-AR/assets/122844229/f55d33b5-5f5b-4b90-a269-39562f8bfe19
+
 
 ## [Figma](https://www.figma.com/file/OFEzEYEFR3MK2Xn8fe6nAf/Food-scanner-app?type=design&node-id=0%3A1&t=2BPq5BfGJL6HH1be-1)
 
